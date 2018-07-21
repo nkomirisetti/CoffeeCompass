@@ -6,12 +6,8 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
         BehaviorDelegate.initialize();
     }
 
-    function onMenu() {
-        Ui.pushView(new Rez.Menus.MainMenu(), new CoffeeCompassMenuDelegate(), Ui.SLIDE_UP);
-        return true;
-    }
-
     function onCoffeePress(){
+        System.println("button pressed");
         return true;
     }
 
