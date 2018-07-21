@@ -11,4 +11,8 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
         return true;
     }
 
+    function onCoffeePress(){
+        return true;
+    }
+
 }
