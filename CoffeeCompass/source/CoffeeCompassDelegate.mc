@@ -28,6 +28,10 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
 //            return "SE";
 //        } 
 //    }
+
+    function metersToMiles( meters ) {
+        return meters * 0.0006213712;
+    }
     
     // latitude and longitude must be in radians
     function bearingToTarget( user_lat, user_lng, target_lat, target_lng ) {
