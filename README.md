@@ -7,5 +7,5 @@ on your wrist so you can see the distance change as you get closer or farther.  
 get a quick glance to see if there is a coffee shop nearby.  There are plans to introduce other categories such as 
 resturants, pizza, and activities in the future.
 
-![alt text](screenshots/home.PNG "Main menu for requesting coffee")
-![alt text](screenshots/result.PNG "Closest result displayed")
+![alt text](Screenshots/home.PNG "Main menu for requesting coffee")
+![alt text](Screenshots/result.PNG "Closest result displayed")
