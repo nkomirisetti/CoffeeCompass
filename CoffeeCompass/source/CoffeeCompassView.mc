@@ -19,7 +19,7 @@ class CoffeeCompassView extends Ui.View {
 
     // Update the view
     function onUpdate(dc) {
-        // Call the parent onUpdate function to redraw the layout
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_ORANGE);
         View.onUpdate(dc);
     }
 
