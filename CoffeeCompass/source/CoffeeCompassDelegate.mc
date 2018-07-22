@@ -1,6 +1,7 @@
 using Toybox.WatchUi as Ui;
 using Toybox.Communications as Comm;
 using Toybox.System;
+using Toybox.Position;
 
 class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
 
@@ -8,8 +9,24 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
         BehaviorDelegate.initialize();
     }
     
-    function onCoffeePress(){
-        System.println("button pressed");
+    // latitude and longitude must be in radians
+    function distanceToTarget( user_lat, user_lng, target_lat, target_lng ) {
+        if( target_lat == user_lat or target_lng == user_lng ) {
+            return 0;
+        }
+        var x = ( target_lng - user_lng ) * Math.cos( ( target_lat + user_lat ) / 2 );
+        var y = ( target_lat - user_lat );
+        return Math.sqrt( ( x * x ) + ( y * y ) ) * 6371000;
+    }
+    
+    // callback for position data aquisition
+    function onPosition( info ) {
+        //var location = info.position.toDegrees();
+	}
+    
+    function onCoffeePress() {
+        queryFoursquare( "coffee", null, 1 );
+        showLoadingScreen();
         return true;
     }
     
@@ -42,20 +59,42 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
         );
     }
     
-    // Receive the data from the web request
+    // show the loading screen now that venues are being loaded
+    function showLoadingScreen() {
+        return true;
+    }
+    
+    // an error occurred while loading venues
+    function onLoadingFailed( responseCode ) {
+        System.print( "ERROR: failed to get Foursquare data: " );
+        System.println( responseCode );
+    }
+    
+    // no venues were found nearby
+    function onNoVenues() {
+        
+    }
+    
+    // at least one venue was successfully loaded
+    function onLoadingSuccess( data ) {
+        System.println( data.toString() );
+    }
+    
+    // receive the data from the web request
     function onReceive(responseCode, data) {
-        var output = null;
         if( responseCode != 200 ) {
-            System.print( "ERROR: failed to get Foursquare data: " );
-            System.println( responseCode );
+            onLoadingFailed( responseCode );
         } else {
-            output = convertFoursquare( data );
-            System.println( output.toString() );
+            var output = convertFoursquare( data );
+            if( output.size() > 0 ) {
+                onLoadingSuccess( output );
+            } else {
+                onNoVenues();
+            }           
         }
-        // TODO call something here
     }
 
-    // Receive the data from the web request
+    // format Foursquare data
     function convertFoursquare( data ) {
 	    var items = data.get( "response" ).get( "groups" )[0].get( "items" );
 	    var items_size = items.size();
@@ -69,7 +108,6 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
 	        this_output.put( "address", location.get( "address" ) );
 	        this_output.put( "lat", location.get( "lat" ).toFloat() );
 	        this_output.put( "lng", location.get( "lng" ).toFloat() );
-	        this_output.put( "distance", location.get( "distance" ).toNumber() );
 	    }
         return output;
     }
