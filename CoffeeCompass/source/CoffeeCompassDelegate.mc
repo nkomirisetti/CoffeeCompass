@@ -9,6 +9,7 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
         BehaviorDelegate.initialize();
     }
     
+
 //    function headingToString( heading ) {
 //        if( heading <= 22.5 and heading > -22.5 ) {
 //            return "E";
@@ -60,6 +61,7 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
         var l3 = [ Math.toRadians( 39.142325 ), Math.toRadians( -94.64919 ) ];
         System.println( Math.toDegrees( bearingToTarget( l1[0], l1[1], l3[0], l3[1] ) ) );
         return true;
+
     }
     
     hidden var _fs_section;
@@ -142,6 +144,7 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
                 onNoVenues();
             }           
         }
+        Ui.pushView(new CompassView(output), new CompassDelegate(), Ui.SLIDE_IMMEDIATE);     
     }
 
     // format Foursquare data

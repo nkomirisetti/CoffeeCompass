@@ -1,0 +1,36 @@
+using Toybox.WatchUi as Ui;
+
+class CompassView extends Ui.View {
+var location;
+
+
+    function initialize(locationData) {
+    	Ui.View.initialize();
+    	location = locationData;
+    }
+
+
+    //! Load your resources here
+    function onLayout(dc) {
+    }
+
+    //! Called when this View is brought to the foreground. Restore
+    //! the state of this View and prepare it to be shown. This includes
+    //! loading resources into memory.
+    function onShow() {
+    }
+
+    //! Update the view
+    function onUpdate(dc) {
+        // Call the parent onUpdate function to redraw the layout
+        dc.clear();
+        dc.drawText(dc.getWidth()/2, dc.getHeight()/2, Graphics.FONT_TINY, location[0].get("name"), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(dc.getWidth()/2, dc.getHeight()/2, Graphics.FONT_MEDIUM, "distance goes here", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
+
+    //! Called when this View is removed from the screen. Save the
+    //! state of this View here. This includes freeing resources from
+    //! memory.
+    function onHide() {
+    }
+}
