@@ -1,0 +1,112 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2018-07-21T17:43:10.646Z",
+	"__export_source": "insomnia.desktop.app:v5.16.6",
+	"resources": [
+		{
+			"_id": "wrk_415fcdc268d3400cb68f0c74982133e6",
+			"created": 1532192258650,
+			"description": "",
+			"modified": 1532192258650,
+			"name": "Insomnia",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_7092ffedf4f44940b80358dcbb5ee73b",
+			"color": null,
+			"created": 1532192258696,
+			"data": {},
+			"isPrivate": false,
+			"modified": 1532192258696,
+			"name": "New Environment",
+			"parentId": "wrk_415fcdc268d3400cb68f0c74982133e6",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_c2991fc273b2446b8c689648b4e362fb",
+			"cookies": [],
+			"created": 1532192258830,
+			"modified": 1532192258830,
+			"name": "Default Jar",
+			"parentId": "wrk_415fcdc268d3400cb68f0c74982133e6",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "req_657a0f689814441ab770f20d8de2b1bc",
+			"authentication": {
+				"disabled": false,
+				"password": "",
+				"type": "basic",
+				"username": ""
+			},
+			"body": {},
+			"created": 1532193122228,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_61eb0707f39a413c9e1ccdab9e521a49",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532193122228,
+			"method": "GET",
+			"modified": 1532194557397,
+			"name": "Coffee",
+			"parameters": [
+				{
+					"id": "pair_f3b5c5f9fb9c4cbfad9d134db9e712de",
+					"name": "client_id",
+					"value": "Q0FXJ3D4IYOSCZI3TYDJH5Y1A3IK5GXPWBCVYVIXW2RHGNDN"
+				},
+				{
+					"id": "pair_11b7c61495294b1f8dc1841b9be40fec",
+					"name": "client_secret",
+					"value": "45CSDE1CMHITQPRCLAEAUPGZRBFWAPX0XQRMCY4GZS0FZ4SW"
+				},
+				{
+					"id": "pair_4a9981b02a44498198334dadde6593e7",
+					"name": "v",
+					"value": "20180323"
+				},
+				{
+					"id": "pair_9449b73b3a9d422796c103e8ab83b481",
+					"name": "ll",
+					"value": "39.13, -94.57"
+				},
+				{
+					"id": "pair_f2c0ce0ec4094fa59ae4ba8fd2651640",
+					"name": "query",
+					"value": "coffee"
+				},
+				{
+					"id": "pair_6be51f883b1e40659d55df21a77b3322",
+					"name": "limit",
+					"value": "5"
+				}
+			],
+			"parentId": "wrk_415fcdc268d3400cb68f0c74982133e6",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "https://api.foursquare.com/v2/venues/search",
+			"_type": "request"
+		},
+		{
+			"_id": "env_628558ff676740b5a9fb2af219b7a728",
+			"color": "#0080ff",
+			"created": 1532193425211,
+			"data": {},
+			"isPrivate": false,
+			"modified": 1532194948671,
+			"name": "HackMidwest",
+			"parentId": "env_7092ffedf4f44940b80358dcbb5ee73b",
+			"_type": "environment"
+		}
+	]
+}
