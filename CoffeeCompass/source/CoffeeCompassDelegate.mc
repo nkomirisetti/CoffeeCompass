@@ -56,12 +56,7 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
     function onCoffeePress() {
         queryFoursquare( "coffee", null, 1 );
         showLoadingScreen();
-        var l1 = [ Math.toRadians( 39.14443 ), Math.toRadians( -94.579239 ) ];
-        var l2 = [ Math.toRadians( 39.173702 ), Math.toRadians( -94.536979 ) ];
-        var l3 = [ Math.toRadians( 39.142325 ), Math.toRadians( -94.64919 ) ];
-        System.println( Math.toDegrees( bearingToTarget( l1[0], l1[1], l3[0], l3[1] ) ) );
         return true;
-
     }
     
     hidden var _fs_section;
@@ -93,7 +88,7 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
             "limit" => _fs_limit,
             "section" => _fs_section,
             "query" => _fs_query,
-            "openNow" => 1
+            "openNow" => 0
         };
         var options = {
            :method => Communications.HTTP_REQUEST_METHOD_GET,
@@ -124,12 +119,12 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
     
     // no venues were found nearby
     function onNoVenues() {
-        
+        System.print( "ERROR: There weren't any venues open" );
     }
     
     // at least one venue was successfully loaded
     function onLoadingSuccess( data ) {
-        System.println( data.toString() );
+        Ui.pushView(new CompassView(data), new CompassDelegate(), Ui.SLIDE_IMMEDIATE);  
     }
     
     // receive the data from the web request
@@ -143,8 +138,7 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
             } else {
                 onNoVenues();
             }           
-        }
-        Ui.pushView(new CompassView(output), new CompassDelegate(), Ui.SLIDE_IMMEDIATE);     
+        }   
     }
 
     // format Foursquare data
