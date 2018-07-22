@@ -1,7 +1,7 @@
 using Toybox.WatchUi as Ui;
 using Toybox.System as Sys;
 
-class ListMenuDelegate extends Ui.MenuInputDelegate {
+class MenuTestMenuDelegate extends Ui.MenuInputDelegate {
 var location;
     function initialize(locationData) {
         MenuInputDelegate.initialize();

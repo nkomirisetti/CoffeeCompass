@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;CoffeeCompass/source/ListDelegateMenu&apos; to &apos;ListDelegateMenu.mc&apos;" description="Rename resource &apos;ListDelegateMenu&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="source/ListDelegateMenu" name="ListDelegateMenu.mc" stamp="1532231496313" updateReferences="true"/>
+</session>
