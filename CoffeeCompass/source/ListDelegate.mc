@@ -14,7 +14,7 @@ class ListDelegate extends Ui.BehaviorDelegate{
 
     function onMenu() {
         var menu = new WatchUi.Menu();
-        //menu.setTitle("Nearby Coffee");
+        menu.setTitle("Nearby Coffee");
         menu.addItem(locationsData[0].get("name"), :one);
         // if (locationsData.size() > 1){
         //     menu.addItem(locationsData[1].get("name"), :two);

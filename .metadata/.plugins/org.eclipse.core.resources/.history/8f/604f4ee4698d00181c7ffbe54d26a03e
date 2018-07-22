@@ -52,6 +52,7 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
             System.println( output.toString() );
         }
         // TODO call something here
+		Ui.popView(Ui.SLIDE_DOWN);
         Ui.pushView(new CompassView(output), new CompassDelegate(), Ui.SLIDE_IMMEDIATE);
         
     }

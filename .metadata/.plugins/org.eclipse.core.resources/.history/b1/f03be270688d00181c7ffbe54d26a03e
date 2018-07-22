@@ -52,8 +52,8 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
             System.println( output.toString() );
         }
         // TODO call something here
-        Ui.pushView(new CompassView(output), new CompassDelegate(), Ui.SLIDE_IMMEDIATE);
-        
+
+        Ui.pushView(new ListView(), new ListDelegate(output), Ui.SLIDE_IMMEDIATE);
     }
 
     // Receive the data from the web request

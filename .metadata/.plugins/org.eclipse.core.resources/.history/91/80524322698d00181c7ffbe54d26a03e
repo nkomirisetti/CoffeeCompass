@@ -1,11 +1,14 @@
 using Toybox.WatchUi as Ui;
 
-class ListView extends Ui.View {
+class CompassView extends Ui.View {
 var location;
-    function initialize(description) {
+
+
+    function initialize(locationData) {
     	Ui.View.initialize();
-        location = description;
+    	location = locationData;
     }
+
 
     //! Load your resources here
     function onLayout(dc) {
@@ -19,8 +22,13 @@ var location;
 
     //! Update the view
     function onUpdate(dc) {
-        //dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
-
+        // Call the parent onUpdate function to redraw the layout
+        
+        dc.clear();
+        dc.drawText(dc.getWidth()/2, dc.getHeight()/2, Graphics.FONT_TINY, location[0].get("name"), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(dc.getWidth()/2, dc.getHeight()/2, Graphics.FONT_MEDIUM, "distance goes here", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                View.onUpdate(dc);
+        
     }
 
     //! Called when this View is removed from the screen. Save the
