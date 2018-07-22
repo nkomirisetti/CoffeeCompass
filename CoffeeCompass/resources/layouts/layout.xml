@@ -1,4 +1,5 @@
 <layout id="MainLayout">
+    <bitmap id="id_monkey" x="0" y="0" filename="../drawables/background.png" />
     <label x="center" y="55" text="@Strings.prompt" color="Gfx.COLOR_WHITE" justification="Gfx.TEXT_JUSTIFY_CENTER" font="Gfx.FONT_TINY" />
     <button x="85" y="90" width="200" height="200" >
         <param name="background">Gfx.COLOR_BLUE</param>
