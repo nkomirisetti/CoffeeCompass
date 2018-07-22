@@ -22,7 +22,7 @@ class ListDelegate extends Ui.BehaviorDelegate{
         //       menu.addItem(locationsData[2].get("name"), :three);
         //     }
         // }
-        WatchUi.pushView(menu, new ListMenuDelegate(locationsData), Ui.SLIDE_UP);
+        WatchUi.pushView(menu, new ListMenuDelegate(locationsData), SLIDE_IMMEDIATE);
         System.println("I finished pushing");
     }
 }

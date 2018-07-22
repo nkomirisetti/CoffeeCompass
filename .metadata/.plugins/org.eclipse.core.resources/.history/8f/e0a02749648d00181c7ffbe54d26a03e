@@ -4,7 +4,7 @@ using Toybox.System as Sys;
 class ListMenuDelegate extends Ui.MenuInputDelegate {
 var location;
     function initialize(locationData) {
-        MenuInputDelegate.initialize();
+//        MenuInputDelegate.initialize();
         location = locationData;
     }
 
