@@ -9,7 +9,8 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
     }
     
     function onCoffeePress(){
-        queryFoursquare("coffee", null, 3);
+        queryFoursquare("coffee", null, 3)
+        return true;
     }
     
     function queryFoursquare( section, query, limit ) {
@@ -53,7 +54,7 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
         }
         // TODO call something here
 
-        Ui.pushView(new ListView(), new ListDelegate(output), Ui.SLIDE_IMMEDIATE);
+        Ui.pushView(new ListView(output), new ListDelegate(output), Ui.SLIDE_UP);
     }
 
     // Receive the data from the web request
