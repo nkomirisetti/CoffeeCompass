@@ -1,4 +1,4 @@
-# HackMidwest
+# CoffeeCompass
 
 Wearables are very popular, and are currently one of the best ways to get useful information at a glance.
 CoffeeCompass is an application that leverages both the foursquare API and the integrated GPS on Garmin wearables to
