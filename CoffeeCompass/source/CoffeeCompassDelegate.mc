@@ -29,24 +29,6 @@ class CoffeeCompassDelegate extends Ui.BehaviorDelegate {
 //            return "SE";
 //        } 
 //    }
-
-    function metersToMiles( meters ) {
-        return meters * 0.0006213712;
-    }
-    
-    // latitude and longitude must be in radians
-    function bearingToTarget( user_lat, user_lng, target_lat, target_lng ) {
-        var y = Math.sin( target_lng - user_lng ) * Math.cos( target_lat );
-        var x = Math.cos( user_lat ) * Math.sin( target_lat ) - Math.sin( user_lat ) * Math.cos( target_lat ) * Math.cos( target_lng - user_lng );
-        return Math.atan2( x, y );
-    }
-    
-    // latitude and longitude must be in radians
-    function distanceToTarget( user_lat, user_lng, target_lat, target_lng ) {
-        var x = ( target_lng - user_lng ) * Math.cos( ( target_lat + user_lat ) / 2 );
-        var y = ( target_lat - user_lat );
-        return Math.sqrt( ( x * x ) + ( y * y ) ) * 6371000;
-    }
     
     // callback for position data aquisition
     function onPosition( info ) {

@@ -4,19 +4,23 @@ using Toybox.Graphics;
 
 class CompassView extends Ui.View {
 var location;
-
+var position = [ 0, 0 ];
 
     function initialize(locationData) {
     	Ui.View.initialize();
     	location = locationData;
     }
 
-    
-    
     //! Load your resources here
     function onLayout(dc) {
+        Position.enableLocationEvents( Position.LOCATION_CONTINUOUS, method( :locationUpdate ) );
+        position = [ 39.14443, -94.579239 ];
     }
-
+    
+    function locationUpdate( info ) {
+        position = info.position.toRadians();
+    }
+    
     //! Called when this View is brought to the foreground. Restore
     //! the state of this View and prepare it to be shown. This includes
     //! loading resources into memory.
@@ -48,8 +52,21 @@ var location;
         dc.clear();
         System.println("im getting here");
         
+        System.println( location.toString() );
+        
+        var distance_value = distanceToTarget( 
+            Math.toRadians( position[0] ), Math.toRadians( position[1] ), 
+            Math.toRadians( location[0].get( "lat" ) ), Math.toRadians( location[0].get( "lng" ) )
+        );
+        distance_value = metersToMiles( distance_value );
+        
+        var bearing_value = bearingToTarget(
+            Math.toRadians( position[0] ), Math.toRadians( position[1] ), 
+            Math.toRadians( location[0].get( "lat" ) ), Math.toRadians( location[0].get( "lng" ) )
+        );
+        
         var distanceLabel = new WatchUi.Text({
-            :text=>"##.## mi NW",
+            :text=> distance_value.format("%.1f") + " Miles",
             :color=>Graphics.COLOR_WHITE,
             :font=>Graphics.FONT_MEDIUM,
             :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
